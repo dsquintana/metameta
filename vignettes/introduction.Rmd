@@ -1,0 +1,84 @@
+---
+title: "Using the metameta package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{using-the-metameta-package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 3
+)
+```
+
+
+
+The metameta package includes a set of functions to re-analyse published meta-analyses. Let's begin by calculating the statistical power of each study included in a meta-analysis. This function will calulate power assuming that the reported summary effect size estimate is the true effect sizes (the "observed_es" argument) as well as assuming a range of possible true effect sizes, ranging from 0.1 to 1 (in increments of 0.1).
+
+This particular meta-analysis includes 9 studies, and reported both the effect size and standard error in a forest plot (for more information on this study, see the documentation page: `?dat_ooi`). Here, we're only showing the first 6 columns for the purposes of illustration, although the function calculates power for 11 true effect sizes in total.
+
+```{r, message=FALSE}
+library(metameta)
+library(dplyr)
+
+power_ooi <- mapower_se(dat = dat_ooi, observed_es = 0.178, name = "ooi et al 2017")
+power_ooi_dat <- power_ooi$dat
+power_ooi_dat <- power_ooi_dat %>% select(1:6) # Select first 6 columns
+power_ooi_dat
+```
+
+There's also a similar function for calculating the statisical power of a meta-analysis that reports effect size and _confidence interval data_, which is often reported if standard error data isn't reported. As before, we're only printing a selection of columns.
+
+```{r, message=FALSE}
+library(metameta)
+library(dplyr)
+
+power_keech <- mapower_ul(dat = dat_keech, observed_es = 0.08, name = "Keech et al 2017")
+power_keech_dat <- power_keech$dat
+power_keech_dat <- power_keech_dat %>% select(1:6) # Select first 6 columns
+power_keech_dat
+```
+
+Sometimes it's useful to calculate the statistical power for a body of meta-analyses, which might be reported in the same article or accross articles. Illustrating the power of individual studies from multiple meta-analyses can be difficult to interpret if there are many studies. An alternative is to illustrate the power per meta-analysis by calculating the mean power accross studies. We can illustrate this with a "Firepower" plot.
+
+Before we create our Firepower plot, we need to prepare the datafile
+
+```{r, message=FALSE}
+### Calcuate median power for three meta-analyses
+power_ooi <- mapower_se(dat = dat_ooi, observed_es = 0.178, name = "ooi et al 2017")
+power_med_ooi <- power_ooi$power_median_dat
+
+keech_power <- mapower_ul(dat = dat_keech, observed_es = 0.08, name = "Keech et al 2017")
+power_med_keech <- keech_power$power_median_dat
+
+power_bakermans_kranenburg <- 
+  mapower_se(dat = dat_bakermans_kranenburg, observed_es = 0.32, 
+             name = "Bakermans-Kranenburg et al 2013")
+power_med_bakermans_kranenburg <- power_bakermans_kranenburg$power_median_dat
+
+### Create a list
+list_power <- list(power_med_ooi, power_med_keech, power_med_bakermans_kranenburg)
+```
+
+Now, we can create our plot using the list we created.
+
+```{r, message=FALSE}
+### Run firepower function
+fp <- firepower(list_power)
+
+### Create firepower plot
+fp_plot <- fp$fp_plot
+fp_plot
+```
+
+You can also print and store the data underlying this figure. 
+
+```{r, message=FALSE}
+fp_data <- fp$dat
+fp_data
+```
