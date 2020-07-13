@@ -26,7 +26,8 @@ This function returns the following:
 \description{
 Calculate statstical power using effect size and standard error data that
 is typically reported in meta-analyses. Power is calculated assuming
-the true effect size and a range of effect sizes.
+the true effect size and a range of effect sizes. The script to calculate power
+was adapted from the "viz_sunset" function of the metaviz package.
 }
 \details{
 \strong{The true effect size}
