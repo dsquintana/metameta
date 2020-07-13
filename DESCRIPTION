@@ -1,0 +1,18 @@
+Package: metameta
+Type: Package
+Title: A Suite of Tools to Re-evaluate Published Meta-analyses
+Version: 0.1.0
+Authors@R: person("Daniel", "Quintana", email = "daniel.quintana@medisin.uio.no", role = c("aut", "cre"))
+Description: A suite of tools to reevaluate published meta-analyses.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends: R (>= 3.5.0)
+Imports: 
+    ggplot2,
+    dplyr,
+    tidyr,
+    ggthemes
+Suggests: 
+    testthat
+RoxygenNote: 7.1.0
