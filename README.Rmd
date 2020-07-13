@@ -3,7 +3,10 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 3)
 ```
 
 # metameta: A Meta-meta-analysis Package for R
@@ -26,21 +29,24 @@ devtools::install_github("dsquintana/metameta")
 
 
 Calculate power for studies included in a published meta-analysis. Power for a range of "True" effect
-sizes are calculated: The reported summary effect size estimate, and a range of effects from 0.1 to 1 (in increments of 0.1). Here, we're only showing the first 6 columns for the purposes of illustration, although the function calculates power for 11 true effect sizes in total.
+sizes are calculated: The reported summary effect size estimate, and a range of effects from 0.1 to 1 (in increments of 0.1). Here, we're only showing the first 6 columns for the purposes of illustration, although the function calculates power for 11 true effect sizes in total. 
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(metameta)
 library(dplyr)
+```
 
+```{r}
 power_ooi <- mapower_se(dat = dat_ooi, observed_es = 0.178, name = "ooi et al 2017")
 power_ooi_dat <- power_ooi$dat
 power_ooi_dat <- power_ooi_dat %>% select(1:6) # Select first 6 columns
 power_ooi_dat
+
 ```
 
 Create a firepower plot, which visualises the median power for assuming the observed effect size in the meta-analysis is the true effect size and assuming a range of true effect sizes ranging from 0.1 to 1 in increments of 0.1. 
 
-```{r}
+```{r, message=FALSE}
 library(metameta)
 
 ### Calcuate median power for three meta-analyses
