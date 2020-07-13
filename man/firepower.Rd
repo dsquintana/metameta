@@ -19,8 +19,8 @@ This function returns the following:
       \item{fp_plot}{A firepower plot}
 }
 \description{
-Creates a dataset with median power and a firepower plot, which visualises the median power for the
-assuming the observed effect size in the meta-analysis is the true effect size and assuming a
+Creates a dataset with median power and a firepower plot, which visualises the median power for a 
+meta-analysis assuming the observed effect size in the meta-analysis is the true effect size and assuming a
 range of true effect sizes ranging from 0.1 to 1 in increments of 0.1. See 'Details'.
 }
 \details{
