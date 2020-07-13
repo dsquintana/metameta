@@ -2,7 +2,7 @@
 title: "Using the metameta package"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{using-the-metameta-package}
+  %\VignetteIndexEntry{Using the metameta package}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
