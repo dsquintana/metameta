@@ -21,15 +21,16 @@ meta-analyses, and for creating a “Firepower” plot, which visualises the
 median power of a meta-analysis assuming a range of true effect sizes.
 
 ## Usage
-Install the package
+### Install the package
 
 ```{r, message=FALSE}
 devtools::install_github("dsquintana/metameta")
 ```
 
 
-Calculate power for studies included in a published meta-analysis. Power for a range of "True" effect
-sizes are calculated: The reported summary effect size estimate, and a range of effects from 0.1 to 1 (in increments of 0.1). Here, we're only showing the first 6 columns for the purposes of illustration, although the function calculates power for 11 true effect sizes in total. 
+### Calculate power for studies included in a published meta-analysis. 
+
+The `mapower_se` function can calculate power for a range of "true" effect sizes: The reported summary effect size estimate and a range of effects from 0.1 to 1 (in increments of 0.1). Here, we're only showing the first 6 columns for the purposes of illustration, although the function calculates power for 11 true effect sizes in total. We're also making our calculations based on reported effect sizes and standard errors
 
 ```{r, message=FALSE, warning=FALSE}
 library(metameta)
@@ -44,7 +45,18 @@ power_ooi_dat
 
 ```
 
-Create a firepower plot, which visualises the median power for assuming the observed effect size in the meta-analysis is the true effect size and assuming a range of true effect sizes ranging from 0.1 to 1 in increments of 0.1. 
+We can also perform the same analysis using effect size and confidence interval data, using the `mapower_ul` function. As before, only a small selection of columns are printed for the purposes of demonstration.
+
+```{r}
+power_keech <- mapower_ul(dat = dat_keech, observed_es = 0.08, name = "Keech et al 2017")
+power_keech_dat <- power_keech$dat
+power_keech_dat <- power_keech_dat %>% select(1:6) # Select first 6 columns
+power_keech_dat
+```
+
+### Create a Firepower plot
+
+Sometimes it's useful to calculate the statistical power for a body of meta-analyses, which might be reported in the same article or accross articles. Illustrating the power of individual studies from multiple meta-analyses can be difficult to interpret if there are many studies. An alternative is to illustrate the power per meta-analysis by calculating the mean power accross studies. We can illustrate this with a "Firepower" plot. This plot visualises the median power assuming the observed effect size in the meta-analysis is the true effect size as well as assuming a range of true effect sizes ranging from 0.1 to 1 (in increments of 0.1). 
 
 ```{r, message=FALSE}
 library(metameta)

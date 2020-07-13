@@ -13,18 +13,21 @@ effect sizes.
 
 ## Usage
 
-Install the package
+### Install the package
 
 ``` r
 devtools::install_github("dsquintana/metameta")
 ```
 
-Calculate power for studies included in a published meta-analysis. Power
-for a range of “True” effect sizes are calculated: The reported summary
-effect size estimate, and a range of effects from 0.1 to 1 (in
-increments of 0.1). Here, we’re only showing the first 6 columns for the
-purposes of illustration, although the function calculates power for 11
-true effect sizes in total.
+### Calculate power for studies included in a published meta-analysis.
+
+The `mapower_se` function can calculate power for a range of “true”
+effect sizes: The reported summary effect size estimate and a range of
+effects from 0.1 to 1 (in increments of 0.1). Here, we’re only showing
+the first 6 columns for the purposes of illustration, although the
+function calculates power for 11 true effect sizes in total. We’re also
+making our calculations based on reported effect sizes and standard
+errors
 
 ``` r
 library(metameta)
@@ -48,10 +51,43 @@ power_ooi_dat
 #> 9   watanabe_2014  0.245 0.222        0.12627341 0.07355100 0.14689796
 ```
 
-Create a firepower plot, which visualises the median power for assuming
-the observed effect size in the meta-analysis is the true effect size
-and assuming a range of true effect sizes ranging from 0.1 to 1 in
-increments of 0.1.
+We can also perform the same analysis using effect size and confidence
+interval data, using the `mapower_ul` function. As before, only a small
+selection of columns are printed for the purposes of
+demonstration.
+
+``` r
+power_keech <- mapower_ul(dat = dat_keech, observed_es = 0.08, name = "Keech et al 2017")
+power_keech_dat <- power_keech$dat
+power_keech_dat <- power_keech_dat %>% select(1:6) # Select first 6 columns
+power_keech_dat
+#>                  study    yi lower upper       sei power_es_observed
+#> 1      anagnostou_2012  0.79 -0.12  1.71 0.4668367        0.05337078
+#> 2       brambilla_2016  0.15 -0.22  0.52 0.1887755        0.07081577
+#> 3           davis_2013  0.11 -0.68  0.90 0.4030612        0.05452497
+#> 4           domes_2013 -0.18 -0.86  0.50 0.3469388        0.05611304
+#> 5         einfeld_2014  0.22 -0.06  0.51 0.1454082        0.08533524
+#> 6  fischer-shofty_2013  0.07 -0.20  0.35 0.1403061        0.08799827
+#> 7          gibson_2014 -0.12 -1.13  0.89 0.5153061        0.05276549
+#> 8          gordon_2013 -0.15 -0.51  0.20 0.1811224        0.07263326
+#> 9       guastella_2010  0.59  0.07  1.12 0.2678571        0.06028006
+#> 10      guastella_2015  0.05 -0.54  0.64 0.3010204        0.05812977
+#> 11        jarskog_2017 -0.30 -0.83  0.23 0.2704082        0.06008590
+#> 12        woolley_2014 -0.01 -0.29  0.26 0.1403061        0.08799827
+```
+
+### Create a Firepower plot
+
+Sometimes it’s useful to calculate the statistical power for a body of
+meta-analyses, which might be reported in the same article or accross
+articles. Illustrating the power of individual studies from multiple
+meta-analyses can be difficult to interpret if there are many studies.
+An alternative is to illustrate the power per meta-analysis by
+calculating the mean power accross studies. We can illustrate this with
+a “Firepower” plot. This plot visualises the median power assuming the
+observed effect size in the meta-analysis is the true effect size as
+well as assuming a range of true effect sizes ranging from 0.1 to 1 (in
+increments of 0.1).
 
 ``` r
 library(metameta)
@@ -79,4 +115,4 @@ fp_plot <- fp$fp_plot
 fp_plot
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
