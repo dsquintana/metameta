@@ -6,6 +6,8 @@
 [![DOI](https://zenodo.org/badge/279281549.svg)](https://zenodo.org/badge/latestdoi/279281549)
 [![Travis build
 status](https://travis-ci.com/dsquintana/metameta.svg?branch=master)](https://travis-ci.com/dsquintana/metameta)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 ## Description
