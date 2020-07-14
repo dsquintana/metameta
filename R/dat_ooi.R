@@ -23,7 +23,7 @@
 #'power_ooi <-
 #'    mapower_se(
 #'    dat = dat_ooi,
-#'    observed_es = 0.08,
+#'    observed_es = 0.178,
 #'    name = "Ooi et al 2017"
 #'    )
 "dat_ooi"

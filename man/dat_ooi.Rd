@@ -26,7 +26,7 @@ measure and confidence intervals were extracted from Figure 2 of the article (se
 power_ooi <-
    mapower_se(
    dat = dat_ooi,
-   observed_es = 0.08,
+   observed_es = 0.178,
    name = "Ooi et al 2017"
    )
 }

@@ -4,11 +4,11 @@
 ## Description
 
 The `metameta` package is a collection of functions for
-meta-meta-analyses in R, which is useful for re-analysing published
+meta-meta-analyses in R, which is useful for re-analyzing published
 meta-analysis. Functions are available to calculate the statistical
 power for each study in a meta-analysis, based on data that is typically
 reported in meta-analyses, and for creating a “Firepower” plot, which
-visualises the median power of a meta-analysis assuming a range of true
+visualizes the median power of a meta-analysis assuming a range of true
 effect sizes.
 
 ## Usage
@@ -79,12 +79,12 @@ power_keech_dat
 ### Create a Firepower plot
 
 Sometimes it’s useful to calculate the statistical power for a body of
-meta-analyses, which might be reported in the same article or accross
+meta-analyses, which might be reported in the same article or across
 articles. Illustrating the power of individual studies from multiple
 meta-analyses can be difficult to interpret if there are many studies.
 An alternative is to illustrate the power per meta-analysis by
-calculating the mean power accross studies. We can illustrate this with
-a “Firepower” plot. This plot visualises the median power assuming the
+calculating the mean power across studies. We can illustrate this with a
+“Firepower” plot. This plot visualizes the median power assuming the
 observed effect size in the meta-analysis is the true effect size as
 well as assuming a range of true effect sizes ranging from 0.1 to 1 (in
 increments of 0.1).
