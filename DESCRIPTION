@@ -2,9 +2,10 @@ Package: metameta
 Type: Package
 Title: A Suite of Tools to Re-evaluate Published Meta-analyses
 Version: 0.1.0
-Authors@R: person("Daniel", "Quintana", email = "daniel.quintana@medisin.uio.no", role = c("aut", "cre"))
+Authors@R: person("Daniel S.", "Quintana", email = "daniel.quintana@medisin.uio.no", role = c("aut", "cre"))
 Description: A suite of tools to reevaluate published meta-analyses.
 License: MIT
+URL: https://github.com/dsquintana/metameta
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5.0)
