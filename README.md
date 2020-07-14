@@ -1,4 +1,10 @@
 
+<!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.com/dsquintana/metameta.svg?branch=master)](https://travis-ci.com/dsquintana/metameta)
+<!-- badges: end -->
+
 # metameta: A Meta-meta-analysis Package for R
 
 ## Description

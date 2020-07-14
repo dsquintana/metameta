@@ -9,8 +9,11 @@ knitr::opts_chunk$set(collapse = TRUE,
   fig.height = 3)
 ```
 
-# metameta: A Meta-meta-analysis Package for R
 
+# metameta: A Meta-meta-analysis Package for R
+<!-- badges: start -->
+  [![Travis build status](https://travis-ci.com/dsquintana/metameta.svg?branch=master)](https://travis-ci.com/dsquintana/metameta)
+<!-- badges: end -->
 ## Description
 
 The `metameta` package is a collection of functions for 
