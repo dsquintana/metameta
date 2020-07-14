@@ -1,11 +1,12 @@
 
+# metameta: A Meta-meta-analysis Package for R
+
 <!-- badges: start -->
 
+[![DOI](https://zenodo.org/badge/279281549.svg)](https://zenodo.org/badge/latestdoi/279281549)
 [![Travis build
 status](https://travis-ci.com/dsquintana/metameta.svg?branch=master)](https://travis-ci.com/dsquintana/metameta)
 <!-- badges: end -->
-
-# metameta: A Meta-meta-analysis Package for R
 
 ## Description
 
