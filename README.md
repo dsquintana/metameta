@@ -11,6 +11,8 @@ reported in meta-analyses, and for creating a “Firepower” plot, which
 visualizes the median power of a meta-analysis assuming a range of true
 effect sizes.
 
+For a full guide and/or an object to cite, see this manuscript: https://doi.org/10.31219/osf.io/js79t
+
 ## Usage
 
 ### Install the package
@@ -114,6 +116,7 @@ fp <- firepower(list_power)
 fp_plot <- fp$fp_plot
 fp_plot
 ```
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)
 
 ### Citing the metameta package
 
@@ -121,4 +124,4 @@ I have put in considerable time and effort creating this package. I would really
 
 Quintana, D.S. (2022). A guide for calculating study-level statistical power for meta-analyses. *OSF Preprints*. https://doi.org/10.31219/osf.io/js79t.
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
