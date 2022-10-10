@@ -3,15 +3,9 @@
 
 ## Description
 
-The `metameta` package is a collection of functions for
-meta-meta-analyses in R, which is useful for re-analyzing published
-meta-analysis. This tool can also be used for novel meta-analyses Functions are available to calculate the statistical
-power for each study in a meta-analysis, based on data that is typically
-reported in meta-analyses, and for creating a “Firepower” plot, which
-visualizes the median power of a meta-analysis assuming a range of true
-effect sizes.
+The `metameta` package facilitates the calculation and visualization of study-level statistical power in meta-analyses for a range of hypothetical effect sizes. The package can be used to re-analyze published meta-analyses using information typically presented in meta-analysis forest plots or when reporting novel meta-analyses. 
 
-For a full guide and/or an object to cite, see this manuscript: https://doi.org/10.31219/osf.io/js79t
+For a full guide and/or an object to cite, see this manuscript: https://doi.org/10.31219/osf.io/js79t. Full citation details are available below.
 
 ## Usage
 
