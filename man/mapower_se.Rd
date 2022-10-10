@@ -2,13 +2,17 @@
 % Please edit documentation in R/mapower_se.R
 \name{mapower_se}
 \alias{mapower_se}
-\title{Calculate statstical power using effect size and standard error data}
+\title{Calculate statistical power using effect size and standard error data}
 \usage{
-mapower_se(dat, observed_es, name)
+mapower_se(dat, size = "medium", observed_es, name)
 }
 \arguments{
 \item{dat}{A dataset that contains one column with observed effect sizes or outcomes
 labelled "yi" and a column with standard error data, labelled "sei".}
+
+\item{size}{The effect size range. The default is a medium range (0.1 to 1, in increments of 0.1).
+Other options include a "small" range (0.05 to 0.5 in increments of 0.05) and a "large"
+range (0.25 to 2.5 in increments of 0.25).}
 
 \item{observed_es}{The observed summary effect size estimate for the meta-analysis, which is one output
 for the set of possible "true" effect sizes. See 'Details'}
@@ -20,11 +24,11 @@ See 'Examples'}
 This function returns the following:
       \item{dat}{A dataset with results from power analyses for a range of effect sizes, including the
       specified observed effect size, in a column labelled "es_observed". The additional added columns include
-      results for power analysis assuming a range of true effect sizes, beginning at 0.1 ("power_es01"),
+      results for power analysis assuming a range of true effect sizes, with the default beginning at 0.1 ("power_es01"),
       then 0.2 ("power_es02"), then continuing in increments of 0.1 up to 1 ("power_es1").}
 }
 \description{
-Calculate statstical power using effect size and standard error data that
+Calculate statistical power using effect size and standard error data that
 is typically reported in meta-analyses. Power is calculated assuming
 the true effect size and a range of effect sizes. The script to calculate power
 was adapted from the "viz_sunset" function of the metaviz package.
@@ -36,8 +40,9 @@ For the purposes of power analysis a "true" effect size needs to be specified. T
 is typically difficult to establish in practice, as reported effect sizes are typically
 inflated. Here, the observed summary effect size estimate reported in the
 meta-analysis results is used as one possible true effect size, however, other effect sizes can
-be specified here instead. Additionaly, statistical power for a range of true effect sizes
-are returned (0.1 to 1, in increments of 0.1).
+be specified here instead. Additionally, statistical power for a range of true effect sizes
+are returned. The default is a range from 0.1 to 1, in increments of 0.1. However, a "small" 
+range and a "large" range is also available.
 }
 \examples{
 power_ooi <- mapower_se(

@@ -4,17 +4,25 @@
 \alias{firepower}
 \title{Calculate the median study power for a meta-analysis and visualise this data using a Firepower plot}
 \usage{
-firepower(power_list)
+firepower(power_list, size = "medium", es = "Effect size")
 }
 \arguments{
 \item{power_list}{A list of dataframes with calculated power, derived from the "mapower_ul" or "mapower_se"
 functions. See 'Examples' for how to make a list.}
+
+\item{size}{The effect size range, as specified using the mapower_se() or mapower_ul() functions. 
+The default is a medium range is 0.1 to 1, in increments of 0.1.
+Other options include a "small" range (0.05 to 0.5 in increments of 0.05) and a "large"
+range (0.25 to 2.5 in increments of 0.25).}
+
+\item{es}{An optional string for the name of the effect size (e.g., "Hedges g").
+The default string is "Effect size".}
 }
 \value{
 This function returns the following:
       \item{dat}{A dataset with the median results from power analyses for a range of effect sizes, including the
       specified true effect size, in a column labelled "power_true". The additional added columns include
-      results for power analysis assuming a range of true effect sizes, beginning at 0.1 ("power_es01"),
+      results for power analysis assuming a range of true effect sizes, with the default beginning at 0.1 ("power_es01"),
       then 0.2 ("power_es02"), then continuing in increments of 0.1 up to 1 ("power_es1").}
       \item{fp_plot}{A firepower plot}
 }
