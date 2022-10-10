@@ -1,15 +1,6 @@
 
 # metameta: A Meta-meta-analysis Package for R
 
-<!-- badges: start -->
-
-[![DOI](https://zenodo.org/badge/279281549.svg)](https://zenodo.org/badge/latestdoi/279281549)
-[![Travis build
-status](https://travis-ci.com/dsquintana/metameta.svg?branch=master)](https://travis-ci.com/dsquintana/metameta)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-<!-- badges: end -->
-
 ## Description
 
 The `metameta` package is a collection of functions for
@@ -123,5 +114,11 @@ fp <- firepower(list_power)
 fp_plot <- fp$fp_plot
 fp_plot
 ```
+
+### Citing the metameta package
+
+I have put in considerable time and effort creating this package. I would really appreciate it if you could cite it when using it for your analyses.
+
+Quintana, D.S. (2022). A guide for calculating study-level statistical power for meta-analyses. *OSF Preprints*. https://doi.org/10.31219/osf.io/js79t.
 
 ![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
