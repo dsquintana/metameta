@@ -1,10 +1,10 @@
 Package: metameta
 Type: Package
-Title: A Suite of Tools to Re-evaluate Published Meta-analyses
-Version: 0.1.1
-Authors@R: person("Daniel S.", "Quintana", email = "daniel.quintana@medisin.uio.no", role = c("aut", "cre"))
-Description: A suite of tools to reevaluate published meta-analyses.
-License: MIT
+Title: A Suite of Tools for calculating and visualising study-level statistical power for meta-analyses
+Version: 0.2
+Authors@R: person("Daniel S.", "Quintana", email = "daniel.quintana@psykologi.uio.no", role = c("aut", "cre"))
+Description: A Suite of Tools for calculating and visualising study-level statistical power for meta-analyses
+License: MIT + file LICENSE
 URL: https://github.com/dsquintana/metameta
 Encoding: UTF-8
 LazyData: true
@@ -18,5 +18,5 @@ Suggests:
     testthat,
     knitr,
     rmarkdown
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.0
 VignetteBuilder: knitr

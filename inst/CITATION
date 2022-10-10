@@ -1,0 +1,15 @@
+citHeader("To cite metameta in publications use:" )
+
+citEntry(
+  entry    = "Article",
+  title    = "A guide for calculating study-level statistical power for meta-analyses",
+  author   = personList(as.person("Quintana, D.S.")),
+  journal  = "OSF Preprints",
+  year     = "2022",
+  url      = "https://doi.org/10.31219/osf.io/js79t",
+  textVersion = 
+  paste("Quintana, D.S. (2022).",
+        "A guide for calculating study-level statistical power for meta-analyses.",
+        "OSF Preprints.", 
+        "https://doi.org/10.31219/osf.io/js79t")
+)
