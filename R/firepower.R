@@ -56,15 +56,7 @@
 #' fp_plot <- fp$fp_plot
 #' fp_plot
 #' 
-#' ### Create a firepower plot using a large range of effect sizes with a "Hedges' g" label
-#' 
-#' power_ooi_l <- mapower_se(dat = dat_ooi, size = "large", observed_es = 0.178, name = "ooi et al 2017")
-#' power_med_ooi_l <- power_ooi_l$power_median_dat
-#' 
-#' firepower(list(power_ooi_l$power_median_dat),
-#' size = “large”,
-#' es = “Hedges’ g”).
-#' 
+
 
 
 
