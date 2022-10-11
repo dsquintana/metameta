@@ -7,19 +7,21 @@
 #'
 #' \strong{The true effect size}
 #'
-#' For the purposes of power analysis a "true" effect size needs to be specified. This
-#' is typically difficult to establish in practice, as reported effect sizes are typically
-#' inflated. Here, the observed summary effect size estimate reported in the
-#' meta-analysis results is used as one possible true effect size, however, other effect sizes can
-#' be specified here instead. Additionally, statistical power for a range of true effect sizes
-#' are returned. The default is a range from 0.1 to 1, in increments of 0.1. However, a "small" 
-#' range and a "large" range is also available.
+#' For the purposes of power analysis a "true" effect size needs to be specified. However,
+#' the true effect size is unknown when testing hypotheses and reported summary
+#' effect sizes are typically inflated. Here, the observed summary effect size estimate 
+#' reported in the meta-analysis results is used as one possible true effect size, however, 
+#' other effect sizes can be specified here instead. Additionally, statistical power for a range 
+#' of true effect sizes are returned. The default is a "medium" range from 0.1 to 1, 
+#' in increments of 0.1. However, a "small" and "large" range is also available 
+#' (see the "size" argument below for details).
 #'
 #' @param dat A dataset that contains one column with observed effect sizes or outcomes
 #'     labelled "yi", a column labelled "lower" with the lower confidence
 #'     interval bound, and column labelled "upper" with the upper confidence
 #'     interval bound. This function assumes a 95\% confidence interval.
 #' @param size The effect size range. The default is a medium range (0.1 to 1, in increments of 0.1).
+#'     In other words, if you do not use this argument, the medium range will be used.
 #'     Other options include a "small" range (0.05 to 0.5 in increments of 0.05) and a "large"
 #'     range (0.25 to 2.5 in increments of 0.25).
 #' @param observed_es The observed summary effect size estimate for the meta-analysis, which is one output
@@ -30,14 +32,36 @@
 #'       \item{dat}{A dataset with results from power analyses for a range of effect sizes, including the
 #'       specified observed effect size, in a column labelled "es_observed". The additional added columns include
 #'       results for power analysis assuming a range of true effect sizes, with the default beginning at 0.1 ("power_es01"),
-#'       then 0.2 ("power_es02"), then continuing in increments of 0.1 up to 1 ("power_es1").}
+#'       then 0.2 ("power_es02"), then continuing in increments of 0.1 up to 1 ("power_es1"). A smaller
+#'       or larger range of effect sizes can be specified (see the 'size' argument for details)}
 #' @examples
+#' 
+#' ### An analysis using the default effect size range
+#' 
 #' keech_power <- mapower_ul(
 #'     dat = dat_keech,
 #'     observed_es = 0.08,
 #'     name = "Keech et al 2017")
 #' keech_power
 #'
+#' ### An analysis using the large effect size range
+#'
+#' keech_power_l <- mapower_ul(
+#'                  dat = dat_keech,
+#'                  size = "large",
+#'                  observed_es = 0.08,
+#'                  name = "Keech et al 2017")
+#' keech_power_l
+#'
+#' ### An analysis using the small effect size range
+#'
+#' keech_power_s <- mapower_ul(
+#'                  dat = dat_keech,
+#'                  size = "small",
+#'                  observed_es = 0.08,
+#'                  name = "Keech et al 2017")
+#' keech_power_s
+#' 
 
 
 mapower_ul <-
