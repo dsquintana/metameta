@@ -110,7 +110,7 @@ firepower <- function(power_list,
         high = "red"
       ) +
       ggplot2::facet_grid( ~ es_cat, scale = 'free_x', space = "free_x") +
-      ggthemes::theme_tufte(base_family = "Helvetica")
+      ggthemes::theme_tufte(base_family = "sans")
     
     firepower_plot <-
       firepower_plot + ggplot2::theme(strip.text.x = ggplot2::element_blank())
@@ -170,7 +170,7 @@ firepower <- function(power_list,
           high = "red"
         ) +
         ggplot2::facet_grid( ~ es_cat, scale = 'free_x', space = "free_x") +
-        ggthemes::theme_tufte(base_family = "Helvetica")
+        ggthemes::theme_tufte(base_family = "sans")
       
       firepower_plot <-
         firepower_plot + ggplot2::theme(strip.text.x = ggplot2::element_blank())
@@ -230,7 +230,7 @@ firepower <- function(power_list,
             high = "red"
           ) +
           ggplot2::facet_grid( ~ es_cat, scale = 'free_x', space = "free_x") +
-          ggthemes::theme_tufte(base_family = "Helvetica")
+          ggthemes::theme_tufte(base_family = "sans")
         
         firepower_plot <-
           firepower_plot + ggplot2::theme(strip.text.x = ggplot2::element_blank())
