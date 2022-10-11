@@ -10,12 +10,13 @@ firepower(power_list, size = "medium", es = "Effect size")
 \item{power_list}{A list of dataframes with calculated power, derived from the "mapower_ul" or "mapower_se"
 functions. See 'Examples' for how to make a list.}
 
-\item{size}{The effect size range, as specified using the mapower_se() or mapower_ul() functions. 
+\item{size}{The effect size range, as specified using the mapower_se() or mapower_ul() functions,
+which created the 'power_list' dataframe or dataframes.
 The default is a medium range is 0.1 to 1, in increments of 0.1.
 Other options include a "small" range (0.05 to 0.5 in increments of 0.05) and a "large"
 range (0.25 to 2.5 in increments of 0.25).}
 
-\item{es}{An optional string for the name of the effect size (e.g., "Hedges g").
+\item{es}{An optional string for the name of the effect size for the plot (e.g., "Hedges g").
 The default string is "Effect size".}
 }
 \value{
@@ -23,7 +24,9 @@ This function returns the following:
       \item{dat}{A dataset with the median results from power analyses for a range of effect sizes, including the
       specified true effect size, in a column labelled "power_true". The additional added columns include
       results for power analysis assuming a range of true effect sizes, with the default beginning at 0.1 ("power_es01"),
-      then 0.2 ("power_es02"), then continuing in increments of 0.1 up to 1 ("power_es1").}
+      then 0.2 ("power_es02"), then continuing in increments of 0.1 up to 1 ("power_es1"). A
+      "small" and "large" effect size range is also possible (see the 'size' argument
+      for details)}
       \item{fp_plot}{A firepower plot}
 }
 \description{
@@ -34,10 +37,13 @@ range of true effect sizes ranging from 0.1 to 1 in increments of 0.1. See 'Deta
 \details{
 \strong{The true effect size}
 
-It is usually difficult to establish a "true" effect size in practice, as reported effect sizes are typically
-inflated. Firepower plots implements two alternative categories for a true effect for the purposes of power
-analysis: The observed summary effect size estimate reported in the meta-analysisand statistical power for
-a range of true effect sizes (0.1 to 1, in increments of 0.1).
+For the purposes of power analysis a "true" effect size needs to be specified. However,
+the true effect size is unknown when testing hypotheses and reported summary
+effect sizes are typically inflated. Thus, Firepower plots implements two alternative 
+categories for a true effect for the purposes of power
+analysis: The observed summary effect size estimate reported in the meta-analysis and statistical power for
+a range of true effect sizes, The default "medium" range is from 0.1 to 1, in increments of 0.1.
+However, a "small" and "large" range is also available (see the "size" argument below for details).
 }
 \examples{
 ### Calcuate median power for meta-analyses
@@ -63,4 +69,14 @@ power_dat
 ### Create firepower plot
 fp_plot <- fp$fp_plot
 fp_plot
+
+### Create a firepower plot using a large range of effect sizes with a "Hedges' g" label
+
+power_ooi_l <- mapower_se(dat = dat_ooi, size = "large", observed_es = 0.178, name = "ooi et al 2017")
+power_med_ooi_l <- power_ooi_l$power_median_dat
+
+firepower(list(power_ooi_l$power_median_dat),
+size = “large”,
+es = “Hedges’ g”).
+
 }
